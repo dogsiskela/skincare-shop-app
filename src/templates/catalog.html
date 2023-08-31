@@ -1,21 +1,20 @@
 {% extends "header.html" %}
 {% load static %}
-
 {% block tab_content %}Catalog{% endblock %}
-
 {% block page_content %}
     <div class="catalog--items">
         <h1 class="catalog--items-title">All products</h1>
         <div class="catalog--products">
             {% for product in products %}
-            <div class="catalog--product">
-                <img src={{ product.image }}  height="200px" width="200px" />
-                <h3>{{ product.name }}</h3>
-                <b>{{ product.price }} MKD</b>
-                <p>{{ product.description }}</p>
-                <div class='catalog--add-to-cart-button'>Add to card</div>
-            </div>
-        {% endfor %}
+                <div class="catalog--product">
+                    <img src={{ product.image }} onclick="location.href='/product/{{ product.pk }}'"  height="200px" width="200px" />
+                    <h3>{{ product.name }}</h3>
+                    <b>{{ product.price }} MKD</b>
+                    <p>{{ product.description }}</p>
+                    <div class='catalog--add-to-cart-button'
+                         onclick="location.href='/cart/add/{{ product.pk }}'">Add to card</div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

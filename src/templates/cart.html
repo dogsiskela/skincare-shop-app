@@ -1,0 +1,26 @@
+{% extends "header.html" %}
+{% load static %}
+{% block tab_content %}Cart{% endblock %}
+{% block page_content %}
+    <div class="cart--container">
+        <h3>My cart</h3>
+        {% for cart_item in cart_items %}
+            <div class='cart--product'
+                 onclick="location.href='/product/{{ product.pk }}'">
+                <img src={{ cart_item.product.image }}  height="200px" width="200px" />
+                <div class='cart--description'>
+                    <h3>{{ cart_item.product.name }}</h3>
+                    <b>{{ cart_item.product.price }} MKD x {{ cart_item.quantity }}</b>
+                </div>
+            </div>
+        {% endfor %}
+        <form method="POST" action="" class="form-auth">
+            {% csrf_token %}
+            <div class="product--action-buttons">
+                <input type="submit"
+                       class='catalog--add-to-cart-button'
+                       value="Buy products" />
+            </div>
+        </form>
+    </div>
+{% endblock %}

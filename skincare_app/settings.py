@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-d+0eo)b74*_n8mm3+et+o%&23!j*z1%19axr#lp^)-tkcw3rhi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['dogsiskela.pythonanywhere.com']
+ALLOWED_HOSTS = ['localhost','dogsiskela.pythonanywhere.com']
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     #Local
     'user',
     'product',
+    'cart',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,26 @@
+{% extends "header.html" %}
+{% load static %}
+{% block tab_content %}Product{% endblock %}
+{% block page_content %}
+    <div class="product--container">
+        <div class="product--image">
+            <img src='/{{ product.image }}' />
+        </div>
+        <div class="product--description">
+            <div class="product--title">
+                <h2>{{ product.name }}</h2>
+                <b>{{ product.price }} MKD</b>
+            </div>
+            <p>{{ product.description }}</p>
+            <b>In stock: {{product.in_stock}}</b>
+            <h3>For skin types:</h3>
+            <div class='product--tags'>
+                {% for category in product.category.all %}<div class="product--pill">{{ category }}</div>{% endfor %}
+            </div>
+            <div class="product--action-buttons">
+                <div class='catalog--add-to-cart-button'>Buy now</div>
+                <div class='product--outlined-button' onclick="location.href='/cart/add/{{product.pk}}'" >Add to card</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

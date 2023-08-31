@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Skin care |
+        {% block tab_content %}Log In{% endblock %}
+    </title>
+    {% load static %}
+    <!-- ====================== LINKS ============================== -->
+    <link rel="stylesheet" href="{% static 'auth.css' %}?{% now " U" %} ">
+    <!-- ====================== END LINКС ============================== -->
+</head>
+</head>
+<body>
+    <div class="auth--container">
+        <form method="POST" action="" class="form-auth">
+            {% csrf_token %}
+            <h3>GentleDerma</h3>
+            <h5>Login now</h5>
+            <input type="text" name="email" placeholder="Email" class="input">
+            <input type="password" name="password" placeholder="Password" class="input">
+            <div class="auth-button">
+                <input type="submit" name="login" class="auth--buton" value="Login">
+            </div>
+            {% comment %} {% for message in messages %}
+                    <p class="color-w fill-row">{{message}}</p>
+            {% endfor %} {% endcomment %}
+        </form>
+    </div>
+</body>

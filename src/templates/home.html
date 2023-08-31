@@ -20,12 +20,12 @@
         <h1>Featured products</h1>
         <div class="home--products">
             {% for product in products %}
-            <div class="home--product">
+            <div class="home--product" onclick="location.href='/product/{{product.pk}}'">
                 <img src={{ product.image }}  height="200px" width="200px" />
                 <h3>{{ product.name }}</h3>
                 <b>{{ product.price }} MKD</b>
                 <p>{{ product.description }}</p>
-                <div class='home--add-to-cart-button'>Add to card</div>
+                <div class='home--add-to-cart-button' onclick="location.href='/cart/add/{{product.pk}}'" >Add to card</div>
             </div>
         {% endfor %}
         </div>

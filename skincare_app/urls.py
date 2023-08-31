@@ -20,12 +20,22 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-from product.views import home_page,catalog_page
+from product.views import home_page,catalog_page,product_preview,add_product
+from user.views import user_login,user_logout,register
+from cart.views import cart,cart_add
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home_page),
-    path('catalog',catalog_page)
+    path('catalog',catalog_page),
+    path('product/<int:id>',product_preview),
+    path('product/add',add_product),
+    path('login',user_login),
+    path('cart',cart),
+    path('register',register),
+    path('logout',user_logout),
+    path('cart/add/<int:id>',cart_add)
+    # path('cart/checkout',)
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
