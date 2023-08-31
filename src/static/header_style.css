@@ -1,0 +1,36 @@
+.header--info {
+    background-color: #AD7863;
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.header--menu {
+    height: 50px;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.menu-item {
+    color: black;
+    text-decoration: none;
+    padding: 0 10px;
+}
+
+.header--additional-items {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+}
+
+.header--cart {
+    display: flex;
+    flex-direction: row;
+    padding: 0px 10px;
+}

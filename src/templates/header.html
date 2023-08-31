@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Skin Care |
+            {% block tab_content %}{% endblock %}
+        </title>
+        <!-- LINKS -->
+        <link rel="stylesheet" href="{% static 'style.css' %}?{% now " U" %} ">
+        {% comment %} <link rel="stylesheet" href="{% static 'util.css' %}?{% now " U" %} "> {% endcomment %}
+        <link rel="stylesheet"
+              href="{% static 'header_style.css' %}?{% now " U" %} ">
+        <link rel="stylesheet" href="{% static 'home_style.css' %}?{% now " U" %} ">
+        <link rel="stylesheet" href="{% static 'catalog_style.css' %}?{% now " U" %} ">
+        {% comment %} <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> {% endcomment %}
+        <!-- END OF LINKS -->
+    </head>
+    <body style=" margin: 0;">
+        <div class="header-container">
+            <div class="header--info">Free shipping with all orders only on 22.04.2023</div>
+            <div class ="header--menu">
+                <h3 style="padding:0px 10px;">GentleDerma</h3>
+                <div class="header--menu-items">
+                    <a href="/" class="menu-item">Home</a>
+                    <a href="/catalog" class="menu-item">Catalog</a>
+                    <a href="/consulting" class="menu-item">Consulting</a>
+                </div>
+                <div class="header--additional-items">
+                    <a href="/" class="menu-item">+ Add new product</a>
+                    <div class="header--cart">
+                        <img src="{% static 'images/cart.png' %}" height="20px" width="20px">
+                        <a href="/" class="menu-item">Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% block page_content %}{% endblock %}
+    </body>
+</html>

@@ -1,0 +1,34 @@
+{% extends "header.html" %}
+{% load static %}
+
+{% block tab_content %}Home{% endblock %}
+
+{% block page_content %}
+    <div>
+        <div class="home--cover">
+            <img src="{% static 'images/cover_image.png' %}" />
+            <div class="home--cover-content">
+                <h1>
+                    Best skin care products
+                </br>
+                perfect for any skin type
+            </h1>
+            <div class="home--browse-button">Browse full catalog</div>
+        </div>
+    </div>
+    <div class="home--featured">
+        <h1>Featured products</h1>
+        <div class="home--products">
+            {% for product in products %}
+            <div class="home--product">
+                <img src={{ product.image }}  height="200px" width="200px" />
+                <h3>{{ product.name }}</h3>
+                <b>{{ product.price }} MKD</b>
+                <p>{{ product.description }}</p>
+                <div class='home--add-to-cart-button'>Add to card</div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
