@@ -6,7 +6,7 @@
         <h3>My cart</h3>
         {% for cart_item in cart_items %}
             <div class='cart--product'
-                 onclick="location.href='/product/{{ product.pk }}'">
+                 onclick="location.href='/product/{{ cart_item.product.pk }}'">
                 <img src={{ cart_item.product.image }}  height="200px" width="200px" />
                 <div class='cart--description'>
                     <h3>{{ cart_item.product.name }}</h3>
