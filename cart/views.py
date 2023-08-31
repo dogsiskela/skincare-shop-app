@@ -34,17 +34,18 @@ def cart_add(request,id):
         return redirect('/login')
     print(request.user.pk)
     user_cart_exists = Cart.objects.filter(user__pk=request.user.pk).exists()
-    if(user_cart_exists):
-        cart = Cart.objects.get(user__pk=request.user.pk)
-        cart_item_exists = CartItem.objects.filter(cart=cart,product__pk = id).exists()
-        if(cart_item_exists):
-            cart_item = CartItem.objects.get(cart=cart,product__pk = id)
-            cart_item.quantity=cart_item.quantity+1
-            cart_item.save()
-        else:
-            cart_item = CartItem(cart=cart,quantity=1,product=Product.objects.get(pk=id))
-            cart_item.save()
-    else:
+    if(not user_cart_exists):
         cart = Cart(user=request.user)
         cart.save()   
+        
+    cart = Cart.objects.get(user__pk=request.user.pk)
+    cart_item_exists = CartItem.objects.filter(cart=cart,product__pk = id).exists()
+    if(cart_item_exists):
+        cart_item = CartItem.objects.get(cart=cart,product__pk = id)
+        cart_item.quantity=cart_item.quantity+1
+        cart_item.save()
+    else:
+        cart_item = CartItem(cart=cart,quantity=1,product=Product.objects.get(pk=id))
+        cart_item.save()
+      
     return redirect('/cart')
